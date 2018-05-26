@@ -30,7 +30,6 @@ var headerplayer = videojs('#headerVideo',headerOptions, function() {
             var height = document.querySelector('#headerVideo').parentElement.offsetHeight;
             myPlayer.width(width);
             myPlayer.height(width * aspectRatioHeader);
-            console.log(height)
         }
 });
 
@@ -41,50 +40,50 @@ setTimeout((headerResize) => {
 
 // Vertical Carousel https://codepen.io/craigmd/pen/dvPGgY
 
-let caroItems = document.getElementsByClassName('caro-item')
+// let caroItems = document.getElementsByClassName('caro-item')
 
-    function wipeIn(element) {
-      element.classList.add('wipe-in')
-    }
+//     function wipeIn(element) {
+//       element.classList.add('wipe-in')
+//     }
     
-    function wipeOut(element) {
-      element.classList.add('wipe-out')
-      delay(2700).then(() => reset(element))
-    }
+//     function wipeOut(element) {
+//       element.classList.add('wipe-out')
+//       delay(2700).then(() => reset(element))
+//     }
     
-    function reset(element) {
-      element.classList = 'caro-item'
-    }
+//     function reset(element) {
+//       element.classList = 'caro-item'
+//     }
     
-    function delay(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms))
-    }
+//     function delay(ms) {
+//       return new Promise(resolve => setTimeout(resolve, ms))
+//     }
     
-    function* carousel(elements) {   
-       for (let i = 0; i >= 0; i++) {
-         if (i === 0) {
-           wipeIn(elements[i])
-           yield
-         }
+//     function* carousel(elements) {   
+//        for (let i = 0; i >= 0; i++) {
+//          if (i === 0) {
+//            wipeIn(elements[i])
+//            yield
+//          }
          
-         wipeOut(elements[i % elements.length])
-         wipeIn(elements[(i + 1) % elements.length])
-         yield
-       }
-    }
+//          wipeOut(elements[i % elements.length])
+//          wipeIn(elements[(i + 1) % elements.length])
+//          yield
+//        }
+//     }
     
-    function runCarousel(genObj) {
-      if (!genObj.next().done) {
-        setTimeout(runCarousel, 3000, genObj)
-      }
-    }
+//     function runCarousel(genObj) {
+//       if (!genObj.next().done) {
+//         setTimeout(runCarousel, 3000, genObj)
+//       }
+//     }
     
-    runCarousel(carousel(caroItems))
+//     runCarousel(carousel(caroItems))
 
-    // Jarallax 
-    jarallax(document.querySelectorAll('.jarallax'), {
-      speed: 0.2
-    });
+//     // Jarallax 
+//     jarallax(document.querySelectorAll('.jarallax'), {
+//       speed: 0.2
+//     });
    
   {
     class Entry {
