@@ -127,36 +127,34 @@ h2 {font-family: 'Bowlby One SC', cursive;
     min-height:80px;
 }
 
+.mobile-header {
+  display:none;
+}
+
 /**************************/
-/*   VERTICAL CAROUSEL    */
+/*       SERVICES         */
 /**************************/
 
-.carousel-wrapper {
-  height: 60vh;
-  position: relative;
-  text-align: center;
+.quien-somos-head {
+	text-align: left;
+	width: 100%;
+	padding: 0;
+	text-transform: uppercase;
+	bottom: auto;
+	line-height: 1.1;
+	top: calc(50vh - 2rem);
+  font-size: 4vmax;
+  cursor:default;
+  color: #fff;
+  text-rendering: optimizeLegibility;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
-.caro-item {
-  left:25%;
-  bottom: 0;
-  font-size: 150px;
-  font-weight: bold;
-  height: 100px;
-  opacity: 0;
-  position: absolute;
-}
-
-.wipe-in {
-  opacity: 1;
-  transition: transform 3s, opacity 3s;
-  transform: translateY(-100%);
-}
-
-.wipe-out {
-  opacity: 0;
-  transition: transform 2700ms, opacity 2700ms;
-  transform: translateY(-200%);
+.quien-somos-text {
+  font-family: 'Open Sans', serif;
+  font-weight: 400;
+  font-size: 26px
 }
 
 /**************************/
@@ -205,7 +203,7 @@ h2 {font-family: 'Bowlby One SC', cursive;
 	bottom: auto;
 	line-height: 1.1;
 	top: calc(50vh - 2rem);
-  font-size: 7vmax;
+  font-size: 6vmax;
   color: #fff;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased;
@@ -221,7 +219,8 @@ h2 {font-family: 'Bowlby One SC', cursive;
 	bottom: auto;
 	line-height: 1.1;
 	top: calc(50vh - 2rem);
-  font-size: 7vmax;
+  font-size: 6vmax;
+  cursor:default;
   color: #fff;
   text-rendering: optimizeLegibility;
   font-smoothing: antialiased;
@@ -298,6 +297,21 @@ a:hover{
 }
 
 /**************************/
+/*       PORTFOLIO        */
+/**************************/
+
+.brand {
+  filter: grayscale(100%);
+  opacity: 65%;
+  transition: all 0.2s ease-in-out;
+}
+
+.brand:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+/**************************/
 /*        EQUIPO          */
 /**************************/
 
@@ -322,19 +336,22 @@ a:hover{
 
 /* Increase Bootstrap Modal Transparency  */
 .modal-backdrop.show {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Social Icons */
 .suricons{
-  width:16%;
-  padding-top:20px;
+  padding: 0 20px;
 }
 .suricons a{
   transition: fill 0.2s ease;
 }
 .suricons a:hover{
   fill: #ffd32a;
+}
+
+.suricons svg {
+  width: 60px;
 }
 /* Modals */
 .modalImg .img-fluid:hover{
@@ -398,13 +415,45 @@ span.suricons-footer svg{
   color:#ffd32a;
 }
 
+
+
+/*  Read More Text */
+
+.hidden {
+  display: none;
+}
+
+#shrinkableMoreLink,
+#shrinkableLessLink {
+  color:#fff;
+}
+
 /**************************/
 /*     MEDIA QUIERIES     */
 /**************************/
 
 @media screen and (max-width: 40em) {
+
   .equipo__text,
-	.content__text {
+  .content__text {
 		font-size: 10vw;
-	}
+  }
+
+  .quien-somos-text {
+    font-size: 20px;
+  }
+  
+  .suricons {
+    padding: 0 10px;
+  }
+  .suricons svg {
+    width: 30px;
+  }
+#headerVideo {
+  display: none;
+}
+
+.mobile-header {
+  display:block;
+}
 }

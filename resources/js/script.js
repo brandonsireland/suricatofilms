@@ -36,55 +36,15 @@ var headerplayer = videojs('#headerVideo',headerOptions, function() {
 // Used to ensure that the video is resized initially without overflow 
 setTimeout((headerResize) => {
     this.headerResize();
-}, 150);
-
-// Vertical Carousel https://codepen.io/craigmd/pen/dvPGgY
-
-// let caroItems = document.getElementsByClassName('caro-item')
-
-//     function wipeIn(element) {
-//       element.classList.add('wipe-in')
-//     }
-    
-//     function wipeOut(element) {
-//       element.classList.add('wipe-out')
-//       delay(2700).then(() => reset(element))
-//     }
-    
-//     function reset(element) {
-//       element.classList = 'caro-item'
-//     }
-    
-//     function delay(ms) {
-//       return new Promise(resolve => setTimeout(resolve, ms))
-//     }
-    
-//     function* carousel(elements) {   
-//        for (let i = 0; i >= 0; i++) {
-//          if (i === 0) {
-//            wipeIn(elements[i])
-//            yield
-//          }
-         
-//          wipeOut(elements[i % elements.length])
-//          wipeIn(elements[(i + 1) % elements.length])
-//          yield
-//        }
-//     }
-    
-//     function runCarousel(genObj) {
-//       if (!genObj.next().done) {
-//         setTimeout(runCarousel, 3000, genObj)
-//       }
-//     }
-    
-//     runCarousel(carousel(caroItems))
+}, 200);
 
 //     // Jarallax 
     jarallax(document.querySelectorAll('.jarallax'), {
+        disableParallax: /iPad|iPhone|iPod|Android/,
       speed: 0.2
     });
    
+    // Text Animation Doesn't work on EI and Safari
   {
     class Entry {
         constructor(el) {
@@ -133,4 +93,47 @@ setTimeout((headerResize) => {
     });
 }
 
+// Modal Transformation
+
+const modalPhoto = document.getElementsByClassName('modalPhoto');
+const modalText = document.getElementsByClassName('modalText');
+
+for( var i = 0; i < modalPhoto.length; i ++){
+
+    if(window.innerWidth <= 576) {
+        modalPhoto[i].classList.remove('col-5')
+        modalPhoto[i].classList.add('col');
+        modalText[i].classList.remove('col-7')
+    }
+}
+
+
+//   Read more
+
+showMore = () => {
+    document.getElementById(id+'Overflow').className='';
+    document.getElementById(id+'MoreLink').className='hidden';
+    document.getElementById(id+'LessLink').className='';
+}
+
+showLess = () => {
+    document.getElementById(id+'Overflow').className='hidden';
+    document.getElementById(id+'MoreLink').className='';
+    document.getElementById(id+'LessLink').className='hidden';
+}
+
+const len = 250;
+const shrinkable = document.querySelector('#shrinkable');
+const fullText = shrinkable.innerHTML;
+
+if(fullText.length > len && window.innerWidth < 500) {
+var trunc = fullText.substring(0, len).replace(/\w+$/, '...');
+var remainder = "";
+var id = shrinkable.id;
+remainder = fullText.substring(len, fullText.length);
+shrinkable.innerHTML = '<span>' + trunc + '<span class="hidden" id="' + id + 'Overflow">'+ remainder +'</span></span>&nbsp; <br><br><br><a id="' + id + 'MoreLink" href="#!" onclick="showMore(\''+ id + '\');">[+]</a><a class="hidden" href="#!" id="' + id + 'LessLink" onclick="showLess(\''+ id + '\');">[-]</a>';
+}
+
 })();
+
+
