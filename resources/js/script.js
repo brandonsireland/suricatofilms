@@ -15,7 +15,7 @@ var headerOptions = {
     controls: false,
     autoplay: true,
     muted: true,
-    preload: 'auto',
+    preload: 'metadata',
     loop: true
 };
 
@@ -81,9 +81,9 @@ setTimeout((headerResize) => {
 //     runCarousel(carousel(caroItems))
 
 //     // Jarallax 
-//     jarallax(document.querySelectorAll('.jarallax'), {
-//       speed: 0.2
-//     });
+    jarallax(document.querySelectorAll('.jarallax'), {
+      speed: 0.2
+    });
    
   {
     class Entry {
